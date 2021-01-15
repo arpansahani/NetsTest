@@ -1,0 +1,53 @@
+<html xmlns:ng="http://angularjs.org" ng-app lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+    <script src="http://code.angularjs.org/1.1.0/angular.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+        var sortingOrder = 'regionName';
+    </script>
+</div>
+<div ng-controller="listTableOrganizerControl">
+    <table class="table table-striped table-condensed table-hover">
+        <thead>
+        <tr>
+            <th class="id">regionName&nbsp;<a ng-click="sort_by('regionName')"><i class="icon-sort"></i></a></th>
+            <th class="name">quarter&nbsp;<a ng-click="sort_by('quarter')"><i class="icon-sort"></i></a></th>
+            <th class="description">changeCausesContent&nbsp;<a ng-click="sort_by('changeCausesContent')"><i class="icon-sort"></i></a></th>
+            <th class="field3">changeCount&nbsp;<a ng-click="sort_by('changeCount')"><i class="icon-sort"></i></a></th>
+        </tr>
+        </thead>
+        <tfoot>
+        <td colspan="6">
+            <div class="pagination pull-right">
+                <ul>
+                    <li ng-class="{disabled: currentPage == 0}">
+                        <a href ng-click="prevPage()">« Prev</a>
+                    </li>
+                    <li ng-repeat="n in range(pagedItems.length)"
+                        ng-class="{active: n == currentPage}"
+                        ng-click="setPage()">
+                        <a href ng-bind="n + 1">1</a>
+                    </li>
+                    <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                        <a href ng-click="nextPage()">Next »</a>
+                    </li>
+                </ul>
+            </div>
+        </td>
+        </tfoot>
+        <tbody>
+        <tr ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+            <td>{{item.regionName}}</td>
+            <td>{{item.quarter}}</td>
+            <td>{{item.changeCausesContent}}</td>
+            <td>{{item.changeCount}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

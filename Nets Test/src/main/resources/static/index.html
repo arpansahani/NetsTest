@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="netsTestApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Nets Test Application Demo</title>
+</head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-route.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers.js"></script>
+<script type="text/javascript" src="js/tableOrganiser.js"></script>
+<link rel="stylesheet" type="text/css" href="css/customCss.css">
+<body ng-controller="GetWelcomeMessageController">
+<h1 class="welcomeMsg">{{myHttpMessage}}</h1>
+<a href='#/getAllPopulationChanges'>Click to retrieve the Population change records</a> <br/>
+<p class="note"><strong>Please be patient.</strong>  May take some time to load from remote API due to huge volume of data. You can go through all the records through the page numbers placed in the footer. </p>
+<br/><br/>
+<div ng-view></div>
+</body>
+</html>
+
